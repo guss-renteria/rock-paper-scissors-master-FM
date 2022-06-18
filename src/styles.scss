@@ -1,0 +1,41 @@
+$scissors_gradient: linear-gradient(90deg, hsl(39, 89%, 49%) 0%, hsl(40, 84%, 53%) 100%);
+$paper_gradient: linear-gradient(90deg, hsl(230, 89%, 62%) 0%, hsl(230, 89%, 65%) 100%);
+$rock_gradient: linear-gradient(90deg, hsl(349, 71%, 52%) 0%, hsl(349, 70%, 56%) 100%);
+$lizard_gradient: linear-gradient(90deg, hsl(261, 73%, 60%) 0%, hsl(261, 72%, 63%) 100%);
+$cyan: linear-gradient(90deg, hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
+
+$dark_text: hsl(229, 25%, 31%);
+$score_text: hsl(229, 64%, 46%);
+$header_outline: hsl(217, 16%, 45%);
+
+$gradient: radial-gradient(circle at top, rgba(31,55,86,1) 0%, rgba(20,21,57,1) 100%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  font-size: .625rem;
+}
+body {
+  padding-top: 3rem;
+  min-height: 100vh;
+
+  background: $gradient;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 6rem;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+footer {
+  display: none;
+}

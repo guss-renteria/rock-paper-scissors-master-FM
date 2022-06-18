@@ -1,0 +1,93 @@
+$scissors_gradient: linear-gradient(90deg, hsl(39, 89%, 49%) 0%, hsl(40, 84%, 53%) 100%);
+$paper_gradient: linear-gradient(90deg, hsl(230, 89%, 62%) 0%, hsl(230, 89%, 65%) 100%);
+$rock_gradient: linear-gradient(90deg, hsl(349, 71%, 52%) 0%, hsl(349, 70%, 56%) 100%);
+$lizard_gradient: linear-gradient(90deg, hsl(261, 73%, 60%) 0%, hsl(261, 72%, 63%) 100%);
+$cyan: linear-gradient(90deg, hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
+
+$dark_text: hsl(229, 25%, 31%);
+$score_text: hsl(229, 64%, 46%);
+$header_outline: hsl(217, 16%, 45%);
+
+$gradient: radial-gradient(circle at top, rgba(31,55,86,1) 0%, rgba(20,21,57,1) 100%);
+
+header {
+  padding: 1rem;
+  width: calc(100% - 6rem);
+  max-width: 88rem;
+
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  border: .2rem solid $header_outline;
+  border-radius: 1rem;
+
+  & > nav {
+    flex: 1;
+    padding: 1rem;
+
+    h2 {
+      color: white;
+      font-size: 1.4rem;
+      line-height: 1.1rem;
+    }
+  }
+  & > .score {
+    width: 8.6rem;
+    height: 8rem;
+
+    background: white;
+    border-radius: .6rem;
+    box-shadow: 0 .2rem .5rem #00000020;
+
+    display: grid;
+    place-items: center;
+    align-content: center;
+
+    p {
+      color: $score_text;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      line-height: 2.8rem;
+      letter-spacing: .1rem;
+
+      b {
+        color: $header_outline;
+        font-size: 4.4rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 2rem;
+
+    border-width: .3rem;
+    border-radius: 2rem;
+
+    & > nav {
+      padding: 0rem 1rem;
+
+      h2 {
+        font-size: 2.8rem;
+        line-height: 2.4rem;
+      }
+    }
+
+    & > .score {
+      width: 15.4rem;
+      height: 12rem;
+
+      p {
+        font-size: 1.8rem;
+        line-height: 4.4rem;
+        letter-spacing: .2rem;
+
+        b {
+          font-size: 6.8rem;
+        }
+      }
+    }
+  }
+}
