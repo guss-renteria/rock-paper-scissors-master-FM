@@ -11,7 +11,7 @@ export default {
   },
   data() {
     return {
-      score: 12,
+      score: 0,
       options,
     }
   },
@@ -20,7 +20,7 @@ export default {
 
 <template>
   <Header :score='score' :options='options'/>
-  <Game :options='options' />
+  <Game :options='options' :score='score'/>
 </template>
 
 <style>

@@ -38,6 +38,7 @@ footer {
 #app {
   padding-top: 3rem;
   min-height: 100vh;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;

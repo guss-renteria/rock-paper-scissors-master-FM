@@ -1,3 +1,15 @@
+$scissors_gradient: linear-gradient(90deg, hsl(39, 89%, 49%) 0%, hsl(40, 84%, 53%) 100%);
+$paper_gradient: linear-gradient(90deg, hsl(230, 89%, 62%) 0%, hsl(230, 89%, 65%) 100%);
+$rock_gradient: linear-gradient(90deg, hsl(349, 71%, 52%) 0%, hsl(349, 70%, 56%) 100%);
+$lizard_gradient: linear-gradient(90deg, hsl(261, 73%, 60%) 0%, hsl(261, 72%, 63%) 100%);
+$cyan: linear-gradient(90deg, hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
+
+$dark_text: hsl(229, 25%, 31%);
+$score_text: hsl(229, 64%, 46%);
+$header_outline: hsl(217, 16%, 45%);
+
+$gradient: radial-gradient(circle at top, rgba(31,55,86,1) 0%, rgba(20,21,57,1) 100%);
+
 div.game-container {
   flex: 1;
   width: 80%;
@@ -7,8 +19,11 @@ div.game-container {
   display: grid;
   place-items: center;
 
+  position: relative;
+
   & > .game-controls {
     width: 100%;
+    position: relative;
 
     & > .select-option {
       padding: 12.5%;
@@ -51,9 +66,166 @@ div.game-container {
         position: relative;
       }
     }
-  }
+    & > .game-checker {
+      width: 100%;
+      height: 100%;
+      min-height: 32rem;
 
-  & > .game-checker {
-    display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+
+      & > .part1,
+      & > .part2 {
+        display: grid;
+        place-items: center;
+        position: relative;
+
+        transition: .2s ease;
+
+        &:nth-child(1) {
+          margin-right: 4rem;
+        }
+        &:nth-child(2) {
+          margin-left: 4rem;
+        }
+
+        & > .option {
+          cursor: default;
+
+          &:hover {
+            transform: none;
+            animation: none;
+          }
+        }
+
+        & > div.option {
+          width: 30vw;
+          height: 30vw ;
+
+          position: relative;
+
+          @media screen and (min-width: 576px) {
+            width: 23vw;
+            height: 23vw;
+          }
+          @media screen and (min-width: 992px) {
+            width: 18vw;
+            height: 18vw;
+          }
+        }
+        & > h3 {
+          position: absolute;
+          bottom: -5.6rem;
+
+          color: white;
+          white-space: nowrap;
+          font-size: 1.7rem;
+          letter-spacing: .1rem;
+          text-transform: uppercase;
+          text-align: center;
+        }
+      }
+
+      & > .game-checker__text {
+        position: absolute;
+        bottom: -2rem;
+
+        opacity: 0;
+        animation: game-checker__text-anim-in 1s ease forwards;
+
+        @keyframes game-checker__text-anim-in {
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @media screen and (min-width: 576px) {
+          bottom: 20%;
+        }
+        @media screen and (min-width: 768px) {
+          bottom: 0;
+        }
+
+        display: grid;
+        place-items: center;
+
+        & > h3 {
+          color: white;
+          font-size: 6rem;
+          text-transform: uppercase;
+        }
+
+        & > button.play-again {
+          width: 110%;
+          margin-top: 1.8rem;
+          padding: 1.4rem;
+
+          background: white;
+          border: none;
+          border-radius: 1rem;
+
+          cursor: pointer;
+          color: $dark_text;
+          font-size: 1.8rem;
+          text-transform: uppercase;
+          letter-spacing: .2rem;
+
+          transition: .2s ease;
+
+          &:hover {
+            color: #cc5544;
+          }
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        align-items: center;
+
+        &.completed {
+          & > .part1,
+          & > .part2 {
+            &:nth-child(1) {
+              margin-right: 18rem;
+            }
+            &:nth-child(2) {
+              margin-left: 18rem;
+            }
+          }
+        }
+
+        & > .part1,
+        & > .part2 {
+          &:nth-child(1) {
+            margin-right: 6rem;
+
+            &.completed {
+              margin-right: 30rem;
+            }
+          }
+          &:nth-child(2) {
+            margin-left: 6rem;
+
+            &.completed {
+              margin-left: 30rem;
+            }
+          }
+          & > h3 {
+            bottom: calc(100% + 5.3rem);
+
+            font-size: 2.4rem;
+            letter-spacing: .2rem;
+          }
+        }
+
+        & > .game-checker__text {
+          bottom: calc(50% - 6rem);
+        }
+      }
+    }
   }
 }

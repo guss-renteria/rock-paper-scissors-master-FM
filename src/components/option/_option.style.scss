@@ -4,17 +4,41 @@ $rock_gradient: linear-gradient(0deg, hsl(349, 71%, 52%) 0%, hsl(349, 70%, 56%) 
 $lizard_gradient: linear-gradient(0deg, hsl(261, 73%, 60%) 0%, hsl(261, 72%, 63%) 100%);
 $cyan: linear-gradient(0deg, hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
 
+$dark_text: hsl(229, 25%, 31%);
+$score_text: hsl(229, 64%, 46%);
+$header_outline: hsl(217, 16%, 45%);
+
+$gradient: radial-gradient(circle at top, rgba(31,55,86,1) 0%, rgba(20,21,57,1) 100%);
+
 div.option {
   width: 32%;
   height: 32%;
 
-  z-index: 10rem;
   display: grid;
   place-items: center;
   border-radius: 100%;
 
   transition: transform .2s ease;
   cursor: pointer;
+
+  &::before {
+    content: '';
+    width: 75%;
+    height: 75%;
+    border-radius: 100%;
+    background: #00000020;
+
+    z-index: -1;
+    position: absolute;
+  }
+
+  &.delay > * {
+    opacity: 0;
+
+    &::before {
+      opacity: 1 !important;
+    }
+  }
 
   &:hover {
     transform: scale(1.02);
@@ -23,6 +47,55 @@ div.option {
     @keyframes option-anim {
       100% {
         transform: scale(1.02) rotate(20deg);
+      }
+    }
+  }
+
+
+  & > .winner {
+    position: absolute;
+  }
+  &.winner > .winner {
+    z-index: -1;
+    position: absolute;
+    width: 160%;
+    height: 160%;
+
+    background: #ffffff06;
+    border-radius: 100%;
+
+    display: grid;
+    place-items: center;
+    transform: scale(0);
+
+    animation: winner-effect 1s ease forwards;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      background: #ffffff06;
+      border-radius: 100%;
+
+      transform: scale(0);
+    }
+    &::before {
+      width: 140%;
+      height: 140%;
+
+      animation: winner-effect 1s ease forwards;
+    }
+    &::after {
+      width: 180%;
+      height: 180%;
+
+      animation: winner-effect 1s ease forwards;
+    }
+
+    @keyframes winner-effect {
+      100% {
+        transform: scale(1);
       }
     }
   }
