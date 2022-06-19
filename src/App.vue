@@ -1,13 +1,13 @@
 <script>
-import options from './data.js'
+import options from '@/data.js'
 
-import Header from './components/header/header.component.vue'
-import Option from './components/option/option.component.vue'
+import Header from '@/components/header/header.component.vue'
+import Game from '@/components/game/game.component.vue'
 
 export default {
   components: {
     Header,
-    Option,
+    Game,
   },
   data() {
     return {
@@ -20,7 +20,7 @@ export default {
 
 <template>
   <Header :score='score' :options='options'/>
-  <!--<Option v-for='option, key in options' :key='key' :option_ref='option' />-->
+  <Game :options='options' />
 </template>
 
 <style>

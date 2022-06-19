@@ -8,6 +8,12 @@ export default {
 
 <template>
   <div class='option'>
-    {{ option_ref.name }}
+    <div :class='`border ${ option_ref.name }`'></div>
+    <div class='content'></div>
+    <img :src='option_ref.icon' :alt='option_ref.name' class='icon'>
   </div>
 </template>
+
+<style lang='sass'>
+@use './option.style'
+</style>

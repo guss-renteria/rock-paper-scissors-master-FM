@@ -1,0 +1,120 @@
+$scissors_gradient: linear-gradient(0deg, hsl(39, 89%, 49%) 0%, hsl(40, 84%, 53%) 100%);
+$paper_gradient: linear-gradient(0deg, hsl(230, 89%, 62%) 0%, hsl(230, 89%, 65%) 100%);
+$rock_gradient: linear-gradient(0deg, hsl(349, 71%, 52%) 0%, hsl(349, 70%, 56%) 100%);
+$lizard_gradient: linear-gradient(0deg, hsl(261, 73%, 60%) 0%, hsl(261, 72%, 63%) 100%);
+$cyan: linear-gradient(0deg, hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
+
+div.option {
+  width: 32%;
+  height: 32%;
+
+  z-index: 10rem;
+  display: grid;
+  place-items: center;
+  border-radius: 100%;
+
+  transition: transform .2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+    animation: option-anim .6s ease-in-out alternate infinite;
+
+    @keyframes option-anim {
+      100% {
+        transform: scale(1.02) rotate(20deg);
+      }
+    }
+  }
+
+  & > .border {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    border-radius: 100%;
+    background: #aaa;
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 104%;
+
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      border-radius: 100%;
+      background: #fff;
+    }
+
+    &.ROCK {
+      background: $rock_gradient;
+
+      &::before {
+        filter: brightness(80%);
+        background: $rock_gradient;
+      }
+    }
+    &.PAPER {
+      background: $paper_gradient;
+
+      &::before {
+      filter: brightness(80%);
+        background: $paper_gradient;
+      }
+    }
+    &.SCISSORS {
+      background: $scissors_gradient;
+
+      &::before {
+      filter: brightness(80%);
+        background: $scissors_gradient;
+      }
+    }
+    &.LIZARD {
+      background: $lizard_gradient;
+
+      &::before {
+      filter: brightness(80%);
+        background: $lizard_gradient;
+      }
+    }
+    &.SPOCK {
+      background: $cyan;
+
+      &::before {
+      filter: brightness(80%);
+        background: $cyan;
+      }
+    }
+  }
+
+  & > .content {
+    width: 78%;
+    height: 78%;
+
+    position: absolute;
+    border-radius: 100%;
+
+    background: #ddd;
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 94%;
+
+      position: absolute;
+      bottom: 0;
+      border-radius: 100%;
+
+      background: #fff;
+    }
+  }
+
+  & > img.icon {
+    width: 34%;
+
+    position: relative;
+    object-fit: cover;
+  }
+}
