@@ -1,0 +1,144 @@
+$scissors_gradient: linear-gradient(90deg, hsl(39, 89%, 49%) 0%, hsl(40, 84%, 53%) 100%);
+$paper_gradient: linear-gradient(90deg, hsl(230, 89%, 62%) 0%, hsl(230, 89%, 65%) 100%);
+$rock_gradient: linear-gradient(90deg, hsl(349, 71%, 52%) 0%, hsl(349, 70%, 56%) 100%);
+$lizard_gradient: linear-gradient(90deg, hsl(261, 73%, 60%) 0%, hsl(261, 72%, 63%) 100%);
+$cyan: linear-gradient(90deg, hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
+
+$dark_text: hsl(229, 25%, 31%);
+$score_text: hsl(229, 64%, 46%);
+$header_outline: hsl(217, 16%, 45%);
+
+$gradient: radial-gradient(circle at top, rgba(31,55,86,1) 0%, rgba(20,21,57,1) 100%);
+
+div.rules-container {
+  padding-bottom: 8rem;
+
+  & * {
+    user-select: none;
+  }
+
+  & > button {
+    padding: .8rem 3.6rem;
+
+    background: transparent;
+    border: .2rem solid white;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    color: white;
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+
+    transition: .2s ease;
+
+    &:hover {
+      background: white;
+      color: $dark_text;
+    }
+  }
+
+  & > .modal {
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+
+    overflow: hidden;
+    top: 0;
+    left: 0;
+
+    border-radius: 1rem;
+
+    & > .modal-container {
+      height: 100%;
+      padding: 4rem 0;
+      background: white;
+
+      overflow-x: hidden;
+      overflow-y: auto;
+      display: grid;
+      place-items: center;
+      align-content: center;
+
+      h2 {
+        margin-bottom: 20%;
+
+        color: $dark_text;
+        font-size: 3.4rem;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      img {
+        width: 80%;
+        object-fit: cover;
+      }
+
+      button {
+        margin-top: 30%;
+        padding: .5rem;
+
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        img {
+          width: 2rem;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 576px) {
+    padding-bottom: 0;
+
+    & > button {
+      position: fixed;
+      right: 4rem;
+      bottom: 4rem;
+    }
+
+    & > .modal {
+      width: 100%;
+      height: 100%;
+      padding: 5% 0;
+      background: #00000075;
+
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      place-items: center;
+      align-content: center;
+
+      & > .modal-container {
+        width: 60%;
+        max-width: 48rem;
+        max-height: 100%;
+        padding: 3rem 3.8rem 3.8rem;
+        display: block;
+
+        position: relative;
+        border-radius: 1rem;
+
+        h2 {
+          width: 100%;
+          margin-bottom: 2rem;
+
+          text-align: left;
+        }
+
+        img {
+          width: 100%;
+        }
+
+        button {
+          position: absolute;
+          right: 4rem;
+          bottom: calc(100% - 8rem);
+        }
+      }
+    }
+  }
+}
