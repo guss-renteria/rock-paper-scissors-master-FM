@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor]()
-- Live Site URL: [Vercel]()
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/game-created-with-vue-and-sass-vite-8M2A2nZdeC)
+- Live Site URL: [Vercel](https://rock-paper-scissors-master-fm.vercel.app/)
 
 ## My process
 
