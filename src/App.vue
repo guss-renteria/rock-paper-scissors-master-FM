@@ -15,12 +15,20 @@ export default {
       options,
     }
   },
+  methods: {
+    addScore() {
+      this.score = this.score + 1
+    },
+    resetScore() {
+      this.score = 0
+    }
+  }
 }
 </script>
 
 <template>
   <Header :score='score' :options='options'/>
-  <Game :options='options' :score='score'/>
+  <Game :options='options' :add_score='addScore' :reset_score='resetScore'/>
 </template>
 
 <style>

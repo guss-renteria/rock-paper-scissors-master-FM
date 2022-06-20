@@ -21,6 +21,11 @@ div.option {
   transition: transform .2s ease;
   cursor: pointer;
 
+  &,
+  & * {
+    user-select: none;
+  }
+
   &::before {
     content: '';
     width: 75%;
@@ -55,47 +60,59 @@ div.option {
   & > .winner {
     position: absolute;
   }
-  &.winner > .winner {
-    z-index: -1;
-    position: absolute;
-    width: 160%;
-    height: 160%;
-
-    background: #ffffff06;
-    border-radius: 100%;
-
-    display: grid;
-    place-items: center;
-    transform: scale(0);
-
-    animation: winner-effect 1s ease forwards;
-
-    &::before,
-    &::after {
-      content: '';
-
+  &.winner {
+    & > .winner {
+      z-index: -1;
       position: absolute;
+      width: 160%;
+      height: 160%;
+
       background: #ffffff06;
       border-radius: 100%;
 
+      display: grid;
+      place-items: center;
       transform: scale(0);
-    }
-    &::before {
-      width: 140%;
-      height: 140%;
 
       animation: winner-effect 1s ease forwards;
-    }
-    &::after {
-      width: 180%;
-      height: 180%;
 
-      animation: winner-effect 1s ease forwards;
+      &::before,
+      &::after {
+        content: '';
+
+        position: absolute;
+        background: #ffffff06;
+        border-radius: 100%;
+
+        transform: scale(0);
+      }
+      &::before {
+        width: 140%;
+        height: 140%;
+
+        animation: winner-effect 1s ease forwards;
+      }
+      &::after {
+        width: 180%;
+        height: 180%;
+
+        animation: winner-effect 1s ease forwards;
+      }
+
+      @keyframes winner-effect {
+        100% {
+          transform: scale(1);
+        }
+      }
     }
 
-    @keyframes winner-effect {
-      100% {
-        transform: scale(1);
+    & > img {
+      animation: img-win 1s ease-in-out alternate backwards infinite;
+
+      @keyframes img-win {
+        100% {
+          transform: rotate(30deg);
+        }
       }
     }
   }

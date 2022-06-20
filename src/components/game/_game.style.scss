@@ -21,6 +21,10 @@ div.game-container {
 
   position: relative;
 
+  & > * {
+    user-select: none;
+  }
+
   & > .game-controls {
     width: 100%;
     position: relative;
