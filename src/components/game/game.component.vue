@@ -94,9 +94,9 @@ export default {
                 ? 'You Win'
                 : is_winner < 0
                   ? 'You Lose'
-                  : 'Draw'
+                  : 'Tie'
             }}</h3>
-            <button class="play-again" @click='setNewGame'>Play Again</button>
+            <button class='play-again' @click='setNewGame'>Play Again</button>
           </div>
       </div>
     </div>
